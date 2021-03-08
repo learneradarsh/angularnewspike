@@ -12,6 +12,8 @@ export class TimerFormSerComponent implements OnInit {
 
   startButtonClickCount = 0;
   pauseButtonClickCount = 0;
+
+  timerLog: string[] = [];
   constructor(private handleTimerService: HandletimerService) { }
 
   ngOnInit(): void {
@@ -20,13 +22,15 @@ export class TimerFormSerComponent implements OnInit {
   handleTimer(el: any) {
     if(this.isStart) {
       this.startButtonClickCount++;
+      this.timerLog.push(`Started at ${new Date()}`);
       this.handleTimerService.startButtonClickCounterSubject.next(this.startButtonClickCount);
-      this.handleTimerService.timerLogSubject.next(`Started at ${Date()}`);
+      this.handleTimerService.timerLogSubject.next(this.timerLog);
       this.isStart = !this.isStart;
     } else {
       this.pauseButtonClickCount++;
+      this.timerLog.push(`Paused at ${new Date()}`);
       this.handleTimerService.pauseButtonClickCounterSubject.next(this.pauseButtonClickCount);
-      this.handleTimerService.timerLogSubject.next(`Paused at ${new Date()}`);
+      this.handleTimerService.timerLogSubject.next(this.timerLog);
       this.isStart = !this.isStart;
     }
     this.handleTimerService.setTimerCount(el.value); 

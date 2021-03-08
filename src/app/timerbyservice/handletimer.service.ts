@@ -6,7 +6,7 @@ import { BehaviorSubject, interval, of, Subject } from 'rxjs';
 })
 export class HandletimerService {
 
-  timerLogSubject = new Subject();
+  timerLogSubject = new Subject<string []>();
   timerLog$ = this.timerLogSubject.asObservable();
 
   startButtonClickCounterSubject = new BehaviorSubject(0);
