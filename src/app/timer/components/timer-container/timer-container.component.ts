@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timer-container',
@@ -7,17 +7,57 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerContainerComponent implements OnInit {
 
-  timerValue: any;
-
+  // counterValue: number; 
+  isStart: boolean = true;
+  startButtonClickCount = 0;
+  pauseButtonClickCount = 0;
+  timerLog: string[] = [];
+  interval;
+  liveCounter: number = 0;
   constructor() { 
   }
 
   ngOnInit(): void {
-    console.log(this.timerValue);
   }
 
+  handleTimer(timerInput) {
+    if(this.isStart){
+      this.startButtonClickCount++;
+      this.timerLog.push(`Started at ${new Date()}`);
+      this.startCounter(timerInput.value);
+      this.isStart = !this.isStart;
+    } else {
+      this.pauseButtonClickCount++;
+      this.timerLog.push(`Paused at ${new Date()}`);
+      this.pauseCounter();
+      this.isStart = !this.isStart;
+    }
+  }
+
+  startCounter(initialValue) {
+    this.liveCounter = initialValue;
+    this.interval = setInterval(() => {
+      this.liveCounter--;
+    }, 1000);
+  }
+  pauseCounter() {
+    clearInterval(this.interval);
+  }
+
+
   setTimer(e: any) {
-    this.timerValue = e.value;
+    console.log(e.value);
+    if(e.value == 'pause') {
+      console.log('pausw wala');
+      this.pauseButtonClickCount++;
+      this.pauseCounter();
+    } else if(e.value === 'stop') {
+      this.liveCounter = 0; 
+    } 
+    else {
+      this.startCounter(e.value);
+      this.startButtonClickCount++;
+    }
   }
 
 }

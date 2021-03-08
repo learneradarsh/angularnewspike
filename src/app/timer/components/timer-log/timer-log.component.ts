@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-timer-log',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerLogComponent implements OnInit {
 
+  displayTimerLog: string[] = [];
+  @Input() timerLogList: string[] = [];
   constructor() { }
 
   ngOnInit(): void {
+    this.displayTimerLog = [...this.timerLogList];
   }
 
 }

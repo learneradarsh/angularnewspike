@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, interval, of, Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HandletimerService {
-
-  timerLogSubject = new Subject<string []>();
+  timerLogSubject = new Subject<string[]>();
   timerLog$ = this.timerLogSubject.asObservable();
 
   startButtonClickCounterSubject = new BehaviorSubject(0);
@@ -17,23 +16,38 @@ export class HandletimerService {
 
   startCounter$: number = 0;
   pauseCounter: number = 0;
+  private interval;
   constructor() {}
 
   timerSubject = new BehaviorSubject(0);
   timerCounter$ = this.timerSubject.asObservable();
 
   setTimerCount(value: number) {
-    this.timerSubject.next(this.startCountdown(value));
+    this.timerSubject.next(value);
   }
 
-  private startCountdown(initialValue) {
+  resetCounter() {
+    this.timerLogSubject.next([]);
+    this.startButtonClickCounterSubject.next(0);
+    this.pauseButtonClickCounterSubject.next(0);
+    this.timerSubject.next(0);
+    this.timerSubject.complete();
+  }
+
+  startCountDown(initialValue) {
     let counter = initialValue;
-
-    const interval = setInterval(() => {
-      console.log(counter);
+    this.pauseCounDown();
+    this.interval = setInterval(() => {
       counter--;
+      this.timerSubject.next(counter);
     }, 1000);
+  }
 
-    return counter;
+  pauseCounDown() {
+    clearInterval(this.interval);
+  }
+
+  getInterval(): number {
+    return this.interval;
   }
 }

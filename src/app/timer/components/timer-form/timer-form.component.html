@@ -4,7 +4,8 @@
         <input type="number" id="timerbox" #timerInput/>
     </div>
     <div>
-        <button type="button" (click)="handleTimer(timerInput)">Start/Pause</button>
-        <button type="reset">Reset</button>
+        <button type="button" (click)="start(timerInput)">Start/Pause</button>
+        <button type="button" (click)="reset()">Reset</button>
     </div>
+    {{liveCounter}}
 </form>

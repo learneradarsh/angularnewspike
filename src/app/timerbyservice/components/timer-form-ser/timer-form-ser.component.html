@@ -1,4 +1,4 @@
-<form>
+<form #counterForm="ngForm">
     <div>
         <label for="timerbox">Enter Time Limit</label>
         <input type="number" id="timerbox" #timerInput/>
@@ -6,5 +6,8 @@
     <div>
         <button type="button" (click)="handleTimer(timerInput)">Start/Pause</button>
         <button type="reset">Reset</button>
+    </div>
+    <div>
+        <p *ngFor="let log of pausedLogList">paused at {{log}}</p>
     </div>
 </form>

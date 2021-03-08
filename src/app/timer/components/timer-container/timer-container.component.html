@@ -1,6 +1,7 @@
 <section class="custom_container">
-    <app-count-down-counter (timeValueEmitter)="setTimer($event)"></app-count-down-counter>
-    <app-timer-form></app-timer-form>
-    <app-timer-log></app-timer-log>
-    <app-timer-form-action-count></app-timer-form-action-count>
+    <app-count-down-counter [counter]="liveCounter"></app-count-down-counter>
+    <app-timer-form (timeValueEmitter)="setTimer($event)"></app-timer-form>
+    <app-timer-log [timeLogList]="timerLog"></app-timer-log>
+    <app-timer-form-action-count [startButtonCountClick]="startButtonClickCount"
+        [pauseButtonCountClick]="pauseButtonClickCount"></app-timer-form-action-count>
 </section>

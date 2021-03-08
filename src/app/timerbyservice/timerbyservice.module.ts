@@ -8,13 +8,15 @@ import { TimerLogSerComponent } from './components/timer-log-ser/timer-log-ser.c
 import { TimerFormActionCountSerComponent } from './components/timer-form-action-count-ser/timer-form-action-count-ser.component';
 import { TimerContainerSerComponent } from './components/timer-container-ser/timer-container-ser.component';
 import { HandletimerService } from './handletimer.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [CountDownCounterSerComponent, TimerFormSerComponent, TimerLogSerComponent, TimerFormActionCountSerComponent, TimerContainerSerComponent],
   imports: [
     CommonModule,
-    TimerbyserviceRoutingModule
+    TimerbyserviceRoutingModule,
+    FormsModule
   ],
   providers: [
     HandletimerService

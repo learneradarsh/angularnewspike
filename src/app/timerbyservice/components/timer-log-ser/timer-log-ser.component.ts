@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HandletimerService } from '../../handletimer.service';
 
 @Component({
@@ -6,15 +7,18 @@ import { HandletimerService } from '../../handletimer.service';
   templateUrl: './timer-log-ser.component.html',
   styleUrls: ['./timer-log-ser.component.scss']
 })
-export class TimerLogSerComponent implements OnInit {
+export class TimerLogSerComponent implements OnInit, OnDestroy {
 
   logsArray: any[];
   constructor(private handleTimerService: HandletimerService) { }
-  
+  subscription: Subscription;
   ngOnInit(): void {
-    this.handleTimerService.timerLog$.subscribe(logs => {;
+    this.subscription = this.handleTimerService.timerLog$.subscribe(logs => {;
       this.logsArray = [...logs];
-    })
+    });
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

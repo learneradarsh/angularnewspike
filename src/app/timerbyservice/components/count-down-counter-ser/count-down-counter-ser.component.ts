@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HandletimerService } from '../../handletimer.service';
 
@@ -8,12 +8,13 @@ import { HandletimerService } from '../../handletimer.service';
   styleUrls: ['./count-down-counter-ser.component.scss'],
 })
 export class CountDownCounterSerComponent implements OnInit, OnDestroy {
-  timerCount: number = 0;
+  timerCount: number;
   constructor(private handleTimerService: HandletimerService) {}
   subscription: Subscription;
   ngOnInit(): void {
     this.subscription = this.handleTimerService.timerCounter$.subscribe(
       (count) => {
+        console.log(count);
         this.timerCount = count;
       }
     );
