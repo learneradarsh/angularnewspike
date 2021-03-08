@@ -10,7 +10,7 @@ import { GridDataDTO } from '../../model/grid-data-dto';
 export class DisplayDataInGridComponent implements OnInit {
 
   gridDataList: GridDataDTO[];
-  header: string [];
+  tableHeader: string [];
   constructor(private userDataService: UserDataService) { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class DisplayDataInGridComponent implements OnInit {
       this.gridDataList = [...data];
       
       this.gridDataList.forEach((dataItem) => {
-        this.header = [...Object.keys(dataItem)];
+        this.tableHeader = [...Object.keys(dataItem)];
       }) 
     });
   }

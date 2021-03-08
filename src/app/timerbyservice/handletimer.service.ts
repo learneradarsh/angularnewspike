@@ -16,6 +16,7 @@ export class HandletimerService {
 
   startCounter$: number = 0;
   pauseCounter: number = 0;
+
   private interval;
   constructor() {}
 
@@ -31,7 +32,6 @@ export class HandletimerService {
     this.startButtonClickCounterSubject.next(0);
     this.pauseButtonClickCounterSubject.next(0);
     this.timerSubject.next(0);
-    this.timerSubject.complete();
   }
 
   startCountDown(initialValue) {
@@ -45,9 +45,5 @@ export class HandletimerService {
 
   pauseCounDown() {
     clearInterval(this.interval);
-  }
-
-  getInterval(): number {
-    return this.interval;
   }
 }

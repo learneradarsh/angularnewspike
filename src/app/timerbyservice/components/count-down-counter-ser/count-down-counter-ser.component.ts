@@ -14,7 +14,6 @@ export class CountDownCounterSerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.handleTimerService.timerCounter$.subscribe(
       (count) => {
-        console.log(count);
         this.timerCount = count;
       }
     );

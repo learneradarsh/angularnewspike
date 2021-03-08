@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HandletimerService } from '../../handletimer.service';
@@ -54,6 +53,8 @@ export class TimerFormSerComponent implements OnInit, OnDestroy {
 
   reset(formRef: any) {
     this.handleTimerService.resetCounter();
+    this.pausedLogList = [];
+    this.handleTimerService.pauseCounDown();
   }
 
   ngOnDestroy() {
