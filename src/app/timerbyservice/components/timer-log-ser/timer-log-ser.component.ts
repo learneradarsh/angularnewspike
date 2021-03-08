@@ -9,7 +9,7 @@ import { HandletimerService } from '../../handletimer.service';
 })
 export class TimerLogSerComponent implements OnInit, OnDestroy {
 
-  logsArray: any[];
+  logsArray: any[] = [];
   constructor(private handleTimerService: HandletimerService) { }
   subscription: Subscription;
   ngOnInit(): void {

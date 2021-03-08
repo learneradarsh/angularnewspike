@@ -1,3 +1,4 @@
 <article>
+    <p *ngIf="logsArray.length === 0">No Logs available</p>
     <p *ngFor="let item of logsArray">{{item}}</p>
 </article>
