@@ -46,7 +46,7 @@ export class TimerFormSerComponent implements OnInit, OnDestroy {
         this.pauseButtonClickCount
       );
       this.handleTimerService.timerLogSubject.next(this.timerLog);
-      // this.handleTimerService.pauseCounDown();
+      this.handleTimerService.pauseCounDown();
       this.isStart = !this.isStart;
     }
   }
