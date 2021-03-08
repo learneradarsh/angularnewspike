@@ -1,0 +1,1 @@
+export const baseAPIPath = 'https://jsonplaceholder.typicode.com';

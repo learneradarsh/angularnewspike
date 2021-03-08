@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HandletimerService } from '../../handletimer.service';
 
 @Component({
   selector: 'app-timer-form-ser',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerFormSerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private handleTimerService: HandletimerService) { }
 
   ngOnInit(): void {
   }
 
+  handleTimer(el: any) { 
+    this.handleTimerService.setTimerCount(el.value);
+  }
 }

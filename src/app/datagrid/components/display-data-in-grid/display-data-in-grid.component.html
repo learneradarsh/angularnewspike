@@ -1,1 +1,14 @@
-<p>display-data-in-grid works!</p>
+<table>
+    <thead>
+        <tr>
+            <th *ngFor="let item of header">{{item}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let gridItem of gridDataList">
+            <td>{{gridItem.name}}</td>
+            <td>{{gridItem.username}}</td>
+            <td>{{gridItem.email}}</td>
+        </tr>
+    </tbody>
+</table>

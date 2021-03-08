@@ -1,3 +1,4 @@
+import { baseAPIPath } from './../../../config';
 import { ProductItemDTO } from './../model/product-dto';
 import { ItemDTO } from './../model/Item-dto';
 import { shareReplay, map, take, takeLast, filter} from 'rxjs/operators';
@@ -8,7 +9,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductsService {
-  readonly url = 'https://jsonplaceholder.typicode.com/photos';
+
   constructor(private http: HttpClient) {}
 
   allProducts$ = this.getProductsFromAPI$().pipe(
@@ -21,7 +22,7 @@ export class ProductsService {
   );
 
   private getProductsFromAPI$() {
-    return this.http.get<ItemDTO[]>(this.url);
+    return this.http.get<ItemDTO[]>(`${baseAPIPath}/photos`);
   }
 
   private transformProduct(product: ItemDTO) {

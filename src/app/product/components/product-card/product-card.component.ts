@@ -1,17 +1,29 @@
 import { ProductItemDTO } from './../../model/product-dto';
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+  styleUrls: ['./product-card.component.scss'],
 })
-export class ProductCardComponent implements OnInit {
-
+export class ProductCardComponent implements OnInit, OnChanges {
   @Input() productItem: ProductItemDTO;
   @Input() viewOption: string = 'grid';
-  constructor() { }
-  ngOnInit(): void {
-  }
+  @HostBinding('style.flex-basis') flexBasis = '24%';
+  constructor() {}
+  ngOnInit(): void {}
 
+  ngOnChanges() {
+    if (this.viewOption === 'list') {
+      this.flexBasis = '50%';
+    } else {
+      this.flexBasis = '24%';
+    }
+  }
 }

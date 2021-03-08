@@ -10,11 +10,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class ProductListingPageComponent implements OnInit {
   productList: ProductItemDTO[];
   viewMode: string;
+  showLoader: boolean = true;
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.productsService.allProducts$.subscribe((data) => {
       this.productList = [...data];
+      this.showLoader = false;
     });
   }
 

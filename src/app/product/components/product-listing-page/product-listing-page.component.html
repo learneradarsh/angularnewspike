@@ -6,6 +6,7 @@
 </section>
 
 <section class="custom_wrapper">
+    <h2 *ngIf="showLoader">Data Loading...</h2>
     <ng-container *ngFor="let product of productList">
         <app-product-card [productItem]="product" [viewOption]="viewMode"></app-product-card>
     </ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HandletimerService } from '../../handletimer.service';
 
 @Component({
   selector: 'app-count-down-counter-ser',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountDownCounterSerComponent implements OnInit {
 
-  constructor() { }
+  timerCount: number = 0;
+  constructor(private handleTimerService: HandletimerService) { }
 
   ngOnInit(): void {
+    this.handleTimerService.timerCounter$.subscribe(count =>  this.timerCount = count);
   }
 
 }
