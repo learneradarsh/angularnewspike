@@ -32,6 +32,7 @@ export class ProductsService {
       imageUrl: 'https://via.placeholder.com/150/92c952',
       description:
         'this is my description for product which explains how product will help you to make your life easy.',
+      price: Math.floor(Math.random() * 40) + 1 
     } as ProductItemDTO;
   }
 }

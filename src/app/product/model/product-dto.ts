@@ -3,4 +3,5 @@ export interface ProductItemDTO {
     title: string;
     imageUrl: string;
     description: string;
+    price: number;
 }

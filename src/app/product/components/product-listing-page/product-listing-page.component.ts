@@ -20,6 +20,27 @@ export class ProductListingPageComponent implements OnInit {
     });
   }
 
+  sortProductByPrice(value: string) {
+    switch(value) {
+      case "lowtohigh":
+        this.sortLowToHigh();
+        break;
+      case "hightolow":
+        this.sortHighToLow();
+        break;
+      default:
+        break;
+    }
+  }
+  
+  sortLowToHigh() {
+    this.productList.sort((a,b) => a.price-b.price);
+  }
+
+  sortHighToLow() {
+    this.productList.sort((a,b) => b.price-a.price);
+  }
+
   listView() {
     this.viewMode = 'list';
   }

@@ -2,7 +2,13 @@
     <div>
         <button type="button" (click)="gridView()"><i class="fas fa-th-large"></i></button>
         <button type="button" (click)="listView()"><i class="fas fa-bars"></i></button>
-        
+    </div>
+    <div>
+        <select (change)="sortProductByPrice($event.target.value)">
+            <option disabled selected>Sort Product</option>
+            <option value="lowtohigh">Sort by Price Low To High</option>
+            <option value="hightolow">Sort by Price High To Low</option>
+        </select>
     </div>
 </section>
 

@@ -15,7 +15,6 @@ export class CountDownCounterSerComponent implements OnInit, OnDestroy {
     this.subscription = this.handleTimerService.timerCounter$.subscribe(
       (count) => {
         this.timerCount = count;
-        console.log(this.timerCount);
       }
     );
   }
