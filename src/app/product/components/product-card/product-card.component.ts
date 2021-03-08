@@ -21,7 +21,7 @@ export class ProductCardComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.viewOption === 'list') {
-      this.flexBasis = '50%';
+      this.flexBasis = '48%';
     } else {
       this.flexBasis = '24%';
     }
