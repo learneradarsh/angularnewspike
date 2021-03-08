@@ -8,13 +8,12 @@ import { HandletimerService } from '../../handletimer.service';
 })
 export class TimerLogSerComponent implements OnInit {
 
-  customArr: any[];
+  logsArray: any[];
   constructor(private handleTimerService: HandletimerService) { }
-
+  
   ngOnInit(): void {
-    this.handleTimerService.timerLog$.subscribe(logs => {
-      console.log(logs);
-      this.customArr = [...logs];
+    this.handleTimerService.timerLog$.subscribe(logs => {;
+      this.logsArray = [...logs];
     })
   }
 
