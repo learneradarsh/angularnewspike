@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 })
 export class TimerFormComponent implements OnInit {
   isStart: boolean = true;
+  @Input() counterValue: number;
   @Output() timeValueEmitter = new EventEmitter<string>();
   @Input() pauseLogList: string[];
   constructor() {}
