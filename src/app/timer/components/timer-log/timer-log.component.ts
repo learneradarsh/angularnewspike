@@ -5,17 +5,11 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   templateUrl: './timer-log.component.html',
   styleUrls: ['./timer-log.component.scss'],
 })
-export class TimerLogComponent implements OnInit, OnChanges {
-  displayTimerLog: string[];
+export class TimerLogComponent implements OnInit{
   @Input() timerLogList: string[];
   constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges() {
-    this.displayTimerLog = [...this.timerLogList];
-    this.timerLogList.forEach(log => this.displayTimerLog.push(log));
   }
 }

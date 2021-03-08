@@ -8,6 +8,6 @@
         <button type="button" (click)="reset()">Reset</button>
     </div>
     <div>
-        <p>Paused at </p>
+        <p *ngFor="let log of pauseLogList">Paused at {{log}} </p>
     </div>
 </form>

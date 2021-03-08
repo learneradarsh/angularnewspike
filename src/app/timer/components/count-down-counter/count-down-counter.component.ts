@@ -5,18 +5,13 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   templateUrl: './count-down-counter.component.html',
   styleUrls: ['./count-down-counter.component.scss']
 })
-export class CountDownCounterComponent implements OnInit, OnChanges {
+export class CountDownCounterComponent implements OnInit {
 
-  displayCounter: number = 0;
   @Input() counter: number = 0;
   constructor() { }
 
   ngOnInit(): void {
     
-  }
-
-  ngOnChanges() {
-    this.displayCounter = this.counter;
   }
 
 }
