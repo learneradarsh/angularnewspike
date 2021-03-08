@@ -1,6 +1,11 @@
 .custom_product-tool-bar {
     display: flex;
     justify-content: flex-end;
+    button {
+        background-color: white;
+        border: none;
+    }
+
     i {
         padding: 10px;
         cursor: pointer;

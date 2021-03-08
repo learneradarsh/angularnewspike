@@ -21,12 +21,10 @@ export class ProductListingPageComponent implements OnInit {
   }
 
   listView() {
-    console.log('list');
     this.viewMode = 'list';
   }
 
   gridView() {
-    console.log('grid');
     this.viewMode = 'grid';
   }
 }

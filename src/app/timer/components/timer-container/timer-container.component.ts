@@ -17,7 +17,6 @@ export class TimerContainerComponent implements OnInit {
   }
 
   setTimer(e: any) {
-    // console.log(e);
     this.timerValue = e.value;
   }
 

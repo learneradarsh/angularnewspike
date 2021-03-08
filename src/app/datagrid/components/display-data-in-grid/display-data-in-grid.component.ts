@@ -16,7 +16,6 @@ export class DisplayDataInGridComponent implements OnInit {
   ngOnInit(): void {
     this.userDataService.userList$.subscribe(data => {
       this.gridDataList = [...data];
-      console.log(this.gridDataList);
       
       this.gridDataList.forEach((dataItem) => {
         this.header = [...Object.keys(dataItem)];
