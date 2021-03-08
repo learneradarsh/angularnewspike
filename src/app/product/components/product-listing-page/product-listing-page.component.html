@@ -1,1 +1,12 @@
-<p>product-listing-page works!</p>
+<section class="custom_product-tool-bar">
+    <div>
+        <i class="fas fa-th-large" (click)="gridView()"></i>
+        <i class="fas fa-bars" (click)="listView()"></i>
+    </div>
+</section>
+
+<section class="custom_wrapper">
+    <ng-container *ngFor="let product of productList">
+        <app-product-card [productItem]="product" [viewOption]="viewMode"></app-product-card>
+    </ng-container>
+</section>

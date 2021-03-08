@@ -1,1 +1,13 @@
-<p>product-card works!</p>
+<div class="custom_product-card">
+    <h2>{{productItem.title}}</h2>
+    <div class="custom_product-card-body">
+        <figure>
+            <img src="{{productItem.imageUrl}}" alt="{{productItem.title}}" />
+            <figcaption>{{productItem.title}}</figcaption>
+        </figure>
+        <article>
+            <h4>About Product:</h4>
+            <p>{{productItem.description}}</p>
+        </article>
+    </div>
+</div>

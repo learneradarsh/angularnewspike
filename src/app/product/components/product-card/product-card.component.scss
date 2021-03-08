@@ -1,0 +1,15 @@
+:host{
+    flex-basis: 24%;
+}
+
+.custom_product-card {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    .custom_product-card-body {
+        display: flex;
+        figcaption {
+            text-align: center;
+        }
+    }
+}

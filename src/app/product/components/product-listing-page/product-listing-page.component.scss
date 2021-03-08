@@ -1,0 +1,14 @@
+.custom_product-tool-bar {
+    display: flex;
+    justify-content: flex-end;
+    i {
+        padding: 10px;
+        cursor: pointer;
+    }
+}
+
+.custom_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

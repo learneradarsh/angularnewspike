@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ProductItemDTO } from './../../model/product-dto';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
+  @Input() productItem: ProductItemDTO;
+  @Input() viewOption: string = 'grid';
   constructor() { }
-
   ngOnInit(): void {
   }
 
