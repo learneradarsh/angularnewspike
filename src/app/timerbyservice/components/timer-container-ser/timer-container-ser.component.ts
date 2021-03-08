@@ -11,8 +11,4 @@ export class TimerContainerSerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  setTimer(e) {
-    console.log(e);
-  }
 }

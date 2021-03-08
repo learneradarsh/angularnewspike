@@ -8,12 +8,27 @@ import { HandletimerService } from '../../handletimer.service';
 })
 export class TimerFormSerComponent implements OnInit {
 
+  isStart: boolean = true;
+
+  startButtonClickCount = 0;
+  pauseButtonClickCount = 0;
   constructor(private handleTimerService: HandletimerService) { }
 
   ngOnInit(): void {
   }
 
-  handleTimer(el: any) { 
-    this.handleTimerService.setTimerCount(el.value);
+  handleTimer(el: any) {
+    if(this.isStart) {
+      this.startButtonClickCount++;
+      this.handleTimerService.startButtonClickCounterSubject.next(this.startButtonClickCount);
+      this.handleTimerService.timerLogSubject.next(`Started at ${Date()}`);
+      this.isStart = !this.isStart;
+    } else {
+      this.pauseButtonClickCount++;
+      this.handleTimerService.pauseButtonClickCounterSubject.next(this.pauseButtonClickCount);
+      this.handleTimerService.timerLogSubject.next(`Paused at ${new Date()}`);
+      this.isStart = !this.isStart;
+    }
+    this.handleTimerService.setTimerCount(el.value); 
   }
 }
