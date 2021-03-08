@@ -22,7 +22,7 @@ export class TimerFormComponent implements OnInit {
     }
   }
 
-  stop() {
+  reset() {
     this.timeValueEmitter.emit('stop');
   }
 }
