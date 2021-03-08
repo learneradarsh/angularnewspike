@@ -25,6 +25,14 @@ export class DisplayDataInGridComponent implements OnInit, OnDestroy {
     });
   }
 
+  sortAsc() {
+    this.gridDataList.sort((a,b) => a.id-b.id);
+  }
+
+  sortDesc() {
+    this.gridDataList.sort((a,b) => b.id - a.id);
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

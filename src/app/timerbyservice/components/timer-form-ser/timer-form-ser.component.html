@@ -5,9 +5,9 @@
     </div>
     <div>
         <button type="button" (click)="handleTimer(timerInput)">Start/Pause</button>
-        <button type="button" (click)="reset()">Reset</button>
+        <button type="button" (click)="reset(timerInput)">Reset</button>
     </div>
     <div>
-        <p *ngFor="let log of pausedLogList">paused at {{log}}</p>
+        <p *ngFor="let log of pausedLogList">Paused at {{log}}</p>
     </div>
 </form>

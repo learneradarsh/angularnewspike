@@ -51,10 +51,11 @@ export class TimerFormSerComponent implements OnInit, OnDestroy {
     }
   }
 
-  reset(formRef: any) {
+  reset(timerInputRef: any) {
     this.handleTimerService.resetCounter();
     this.pausedLogList = [];
     this.handleTimerService.pauseCounDown();
+    timerInputRef.value = "";
   }
 
   ngOnDestroy() {
