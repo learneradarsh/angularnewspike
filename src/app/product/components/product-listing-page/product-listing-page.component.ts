@@ -1,20 +1,22 @@
+import { Subscription } from 'rxjs';
 import { ProductItemDTO } from './../../model/product-dto';
 import { ProductsService } from './../../services/products.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-product-listing-page',
   templateUrl: './product-listing-page.component.html',
   styleUrls: ['./product-listing-page.component.scss'],
 })
-export class ProductListingPageComponent implements OnInit {
+export class ProductListingPageComponent implements OnInit, OnDestroy {
   productList: ProductItemDTO[];
   viewMode: string;
   showLoader: boolean = true;
+  subscription: Subscription;
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productsService.allProducts$.subscribe((data) => {
+    this.subscription = this.productsService.allProducts$.subscribe((data) => {
       this.productList = [...data];
       this.showLoader = false;
     });
@@ -47,5 +49,9 @@ export class ProductListingPageComponent implements OnInit {
 
   gridView() {
     this.viewMode = 'grid';
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
